@@ -6,3 +6,5 @@ files="$(pwd)/*.mac"
 for mac_config_file in $files; do
   source $mac_config_file;
 done
+
+echo "Done. Some of these changes require a restart to take effect."

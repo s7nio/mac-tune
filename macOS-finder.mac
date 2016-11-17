@@ -2,4 +2,57 @@
 # FINDER
 ########
 
-echo "hello"
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Set Dark theme
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Finder: show hidden files by default
+#defaults write com.apple.finder AppleShowAllFiles -bool false
+
+# Set ~/Path as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+# Finder: new finder window shows your home folder
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Use spalt view in all Finder windows by default (modes: `Nlsv`, `icnv`, `clmv`, `Flwv`)
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Finder: show side bar
+defaults write com.apple.finder ShowSidebar -bool true
+#defaults write com.apple.finder ShowTabView -bool false
+#defaults write com.apple.finder ShowPreviewPane -bool false
+
+# Desktop device icons
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 36
+
+# Battery - show percentage charged.
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+# Clock
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+defaults write com.apple.menuextra.clock DateFormat -string "HH:mm:ss"
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+
+# Dock Itims: com.apple.systemuiserver

@@ -1,0 +1,88 @@
+#########################
+# IPv6 privacy extensions
+#########################
+
+#sudo sysctl -w net.inet6.ip6.use_tempaddr=1
+
+##########
+# TERMINAL
+##########
+
+# Enable Secure Keyboard Entry in Terminal.app - https://security.stackexchange.com/a/47786/8918
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+##############
+# TIME MACHINE
+##############
+
+# Disable local Time Machine backups
+#hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+###########
+# SPOTLIGHT
+###########
+
+# Change indexing order and disable some search results
+#defaults write com.apple.spotlight orderedItems -array \
+#  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+#  '{"enabled" = 1;"name" = "PDF";}' \
+#  '{"enabled" = 1;"name" = "DOCUMENTS";}' \
+#  '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+#  '{"enabled" = 1;"name" = "PRESENTATIONS";}' \
+#  '{"enabled" = 1;"name" = "SPREADSHEETS";}' \
+#  '{"enabled" = 1;"name" = "IMAGES";}' \
+#  '{"enabled" = 0;"name" = "MESSAGES";}' \
+#  '{"enabled" = 0;"name" = "CONTACT";}' \
+#  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+#  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+#  '{"enabled" = 0;"name" = "MUSIC";}' \
+#  '{"enabled" = 0;"name" = "MOVIES";}' \
+#  '{"enabled" = 0;"name" = "FONTS";}' \
+#  '{"enabled" = 0;"name" = "SYSTEM_PREFS";}' \
+#  '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+#  '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+#  '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}' \
+#  '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}' \
+#  '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+#  '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+#  '{"enabled" = 0;"name" = "MENU_DEFINITION";}'
+
+# Load new settings before rebuilding the index
+#killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+#sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+#sudo mdutil -E / > /dev/null
+
+###########
+# TEXT EDIT
+###########
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.TextEdit IgnoreHTML -bool true
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+# Doesn't add default .txt extension
+defaults write com.apple.TextEdit AddExtensionToNewPlainTextFiles -bool false
+
+##########
+# TRACKPAD
+##########
+
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
+
+#############
+# SCREENSAVER
+#############
+
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 5
