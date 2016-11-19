@@ -13,7 +13,7 @@ else
      echo "Missing 'github.user' configuration."
      exit -1
    else
-     dir=$(pwd)"/github"
+     dir="$HOME/github"
      if [[ -d $dir ]];
      then
        echo "$dir already exist."
@@ -27,4 +27,4 @@ else
      eval $clone
    fi
 fi
-echo "Done"
+echo "Done."
