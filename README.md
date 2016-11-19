@@ -11,3 +11,8 @@ $ sh macOS.sh
 ```shell
 $ sh homebrew.sh
 ```
+
+## download your github repositories
+```shell
+$ sh github-dl.sh
+```
